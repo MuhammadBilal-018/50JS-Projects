@@ -4,6 +4,7 @@ const gameButton = document.querySelector(".btn");
 
 let currentPlayer;
 let gameGrid;
+let count=0;
 
 const winningPosition = 
 [
@@ -19,6 +20,7 @@ const winningPosition =
 
 function initGame(){
         currentPlayer = "X";
+        // count=0;
         gameGrid = ["","","","","","","","",""];
         gameButton.classList.remove("active");
         gameInfo.innerText = `Current Player - ${currentPlayer}`;
@@ -42,19 +44,16 @@ boxes.forEach((box) => {
             box.innerText = "O";
             currentPlayer = "X";
         }
+        
         gameInfo.innerText = `Current Player - ${currentPlayer}`;
         box.style.pointerEvents = "none";
         checkWinner();
-
-        
-
-        
-    })
+        })
 })
 
 function checkWinner(){
     let winner = "";
-    for(let pattern of winningPosition){
+    winningPosition.forEach((pattern) => {
         let positionValue1 = boxes[pattern[0]].innerText;
         let positionValue2 = boxes[pattern[1]].innerText;
         let positionValue3 = boxes[pattern[2]].innerText;
@@ -80,10 +79,9 @@ function checkWinner(){
             boxes.forEach((box)=>{
                 box.style.pointerEvents = "none";
             })
-            gameButton.classList.add("active");
-           
+            gameButton.classList.add("active");          
         }        
-    }
+    })    
 }
 
 gameButton.addEventListener("click", initGame)
