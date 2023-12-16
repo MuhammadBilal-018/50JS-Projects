@@ -3,7 +3,6 @@ const boxes = document.querySelectorAll(".box");
 const gameButton = document.querySelector(".btn");
 
 let currentPlayer;
-let gameGrid;
 let count=0;
 
 const winningPosition = 
@@ -21,7 +20,6 @@ const winningPosition =
 function initGame(){
         currentPlayer = "X";
         // count=0;
-        gameGrid = ["","","","","","","","",""];
         gameButton.classList.remove("active");
         gameInfo.innerText = `Current Player - ${currentPlayer}`;
         boxes.forEach((box,index)=>{
@@ -48,9 +46,22 @@ boxes.forEach((box) => {
         gameInfo.innerText = `Current Player - ${currentPlayer}`;
         box.style.pointerEvents = "none";
         checkWinner();
+        count++;
+
+        let isWinner = checkWinner();
+
+        if(count === 9 && !isWinner){
+            gameDraw();
+        }
+
         })
 })
 
+function gameDraw(){
+    gameInfo.innerText = `Game was a Draw.`;
+    console.log("Game Draw!")
+  }
+  
 function checkWinner(){
     let winner = "";
     winningPosition.forEach((pattern) => {
