@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+#wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 3rem;
+    color: #2e3287;
+    letter-spacing: 3px;
+}
+
+.updated-number{
+    font-size: 5rem;
+    font-weight: bold;
+    color: #15796a;
+}
+
+.counter-buttons{
+    width: 18vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.decrease-number, .increase-number, .reset-number{
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
